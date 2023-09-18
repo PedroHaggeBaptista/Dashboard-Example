@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="./index.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b416948aa6.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="sideBar">
+        <div class="buttonsDash">
+            <div class="btnDashboard">
+                <i style="margin-left: 40px" class="fa-solid fa-chart-simple fa-lg"></i>
+                <label style="font-size: 10pt;">Dashboard</label>
+            </div>
+        </div>
+
+        <div class="btnLogOut">
+            <i style="margin-left: 40px" class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
+            <label style="font-size: 10pt;">Log Out</label>
+        </div>
+        
+    </div>
+    <div class="content">
+        <div class="welcome">
+            <div class="textWel">
+                <label class="hiText">Hi Pedro</label>
+                <label class="dashText">Dashboard</label>
+            </div>
+            <div class="userDash">
+                <i class="fa-solid fa-bell fa-lg" style="color: white; margin-right: 15px;"></i>
+                <img class="imgPerfil" src="./perfil.jpg"></img>
+                <label class="textUser">Pedro Baptista</label>
+                <i class="fa-solid fa-caret-down fa-md" style="color: white;"></i>
+            </div>
+        </div>
+        <div class="pGraph">
+            <canvas id="myChart" height="360px" width="1468px"></canvas>
+        </div>
+        <div class="dailyTitle">
+            <label>Atualizações Diárias</label>
+        </div>
+        <div class="dailyCont">
+            <div class="dailyCard">
+                <div style="margin-left: 10px; margin-top: 5px;">
+                    <div class="dailyCardTitle">
+                        <label class="txtTitleCard">Custos com GPT</label>
+                    </div>
+                    <div class="dailyCardCont">
+                        <label class="txtContCard">R$132.8</label>
+                    </div>
+                </div>
+                <canvas id="chartGPT" width="100%"></canvas>
+                <div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-top: -20px;">
+                    <p style="font-size: 10pt; width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; color: #FFF;">dias</p>
+                </div>
+            </div>
+
+            <div class="dailyCard" style="background-color: #652F8D;">
+                <div style="margin-left: 10px; margin-top: 5px;">
+                    <div class="dailyCardTitle">
+                        <label class="txtTitleCard">Chats</label>
+                    </div>
+                    <div class="dailyCardCont">
+                        <label class="txtContCard">542</label>
+                    </div>
+                </div>
+                <canvas id="chartChat" width="100%"></canvas>
+                <div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-top: -20px;">
+                    <p style="font-size: 10pt; width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; color: #FFF;">dias</p>
+                </div>
+            </div>
+
+            <div class="dailyCard">
+                <div style="margin-left: 10px; margin-top: 5px;">
+                    <div class="dailyCardTitle">
+                        <label class="txtTitleCard">Chats com erro</label>
+                    </div>
+                    <div class="dailyCardCont">
+                        <label class="txtContCard">3</label>
+                    </div>
+                </div>
+                <canvas id="errChatChart" width="100%"></canvas>
+                <div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-top: -20px;">
+                    <p style="font-size: 10pt; width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; color: #FFF;">dias</p>
+                </div>
+            </div>
+
+            <div class="dailyCard">
+                <div style="margin-left: 10px; margin-top: 5px;">
+                    <div class="dailyCardTitle">
+                        <label class="txtTitleCard">Alertas de Erro</label>
+                    </div>
+                    <div class="dailyCardCont">
+                        <label class="txtContCard">10</label>
+                    </div>
+                </div>
+                <canvas id="alertChart" width="100%"></canvas>
+                <div style="width: 100%; display: flex; align-items: center; justify-content: center; margin-top: -20px;">
+                    <p style="font-size: 10pt; width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; color: #FFF;">dias</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
