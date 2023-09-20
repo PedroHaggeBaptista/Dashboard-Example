@@ -27,7 +27,7 @@ var chartChat = {
     datasets: [{
         label: "r",
         borderColor: "#FFF",
-        data: [382, 454, 542]
+        data: [0, 0, 542]
     }],
 }
 
@@ -49,12 +49,46 @@ var errChatChart = {
     }],
 }
 
-window.onload = function() {
+function loadPage() {
     createElement()
     createElement1()
     createElement2()
     createElement3()
     createElement4()
+}
+
+window.onload = async function() {
+    await fetchInfos()
+
+    loadPage()
+}
+
+function substituirPorZero(array, indice) {
+    if (indice >= 0 && indice < array.length) {
+        for (let i = indice + 1; i < array.length; i++) {
+        array[i] = 0;
+        }
+    } else {
+        console.error("Índice fora dos limites do array.");
+    }
+}
+
+async function fetchInfos() {
+    const response = await fetch('http://localhost:3001/v1/chat/getAllMessages')
+
+    const dataJson = await response.json()
+
+    const date = new Date()
+
+    data.datasets[0].data[date.getMonth()] = dataJson.messages
+
+    chartChat.datasets[0].data[chartChat.datasets[0].data.length - 1] = dataJson.chats
+
+    document.getElementById("qntChats").innerText = String(dataJson.chats)
+
+    substituirPorZero(data.datasets[0].data, date.getMonth())
+
+    return dataJson
 }
 
 function createElement() {
@@ -156,5 +190,10 @@ function createElement4() {
         },
     });
 }
+
+
+setInterval(async () => {
+    window.location.reload()
+}, 1800000);
 
 console.log("Hello World from index.js")
